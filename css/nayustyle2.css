@@ -226,13 +226,18 @@ footer {
 }
 
 .header-profile-text {
-    text-align: center;      
+    text-align: center;       /* ★ 中央揃えに変更 */
 }
 
-/* ヘッダー内のh1, pのスタイルを微調整（元のtext-align:centerを上書き） */
-header .header-profile-text h1,
+/* ヘッダー内のh1, pのスタイルを微調整 */
+header .header-profile-text h1 {
+    text-align: center;       /* ★ h1（名前）を中央揃えに変更 */
+    margin-left: 0;
+    margin-right: 0;
+}
+
 header .header-profile-text p {
-    text-align: center;
+    text-align: center;       /* ★ 所属のpタグも中央揃え（もし左揃えのままがよければ left にしてください） */
     margin-left: 0;
     margin-right: 0;
 }
