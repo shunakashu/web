@@ -215,43 +215,67 @@ footer {
 #menubar { display: none; }
 
 /* =========================================
-   プロフィールエリア (Profile Container)
+   ヘッダー内プロフィール (Header Profile) - 新規追加
    ========================================= */
-.profile-container {
+.header-profile-container {
     display: flex;
-    align-items: center; /* 縦方向の中央揃え */
-    gap: 30px;           /* テキストと写真の間の余白 */
-    flex-wrap: wrap;     /* 画面が狭い時に折り返す */
+    align-items: center;    /* 縦方向中央揃え */
+    justify-content: center; /* 横方向中央揃え（元のtext-align:centerを維持） */
+    gap: 30px;              /* テキストと写真の間隔 */
+    margin-bottom: 20px;     /* ナビゲーションとの間隔 */
 }
 
-.profile-text {
-    flex: 1;             /* 残りのスペースを埋める */
-    min-width: 250px;    /* スマホなどで折り返す基準の幅 */
+.header-profile-text {
+    text-align: left;       /* 名前テキストは左揃えにする */
 }
 
-.profile-image {
+/* ヘッダー内のh1, pのスタイルを微調整（元のtext-align:centerを上書き） */
+header .header-profile-text h1,
+header .header-profile-text p {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.header-photo {
     flex-shrink: 0;
-    width: 150px;        /* 顔写真のサイズ（お好みで調整してください） */
-    text-align: center;
+    width: 120px;           /* ヘッダー用に少し小さく調整 (About meは150pxだった) */
 }
 
-.profile-image img {
+.header-photo img {
     width: 100%;
     height: auto;
-    border-radius: 10px; /* ★ 50% から 15px に変更（数字を大きくするとより丸くなります） */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    object-fit: cover;
-    aspect-ratio: 1 / 1;
+    border-radius: 15px;     /* 角丸スクエアを維持 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 影を維持 */
+    object-fit: cover;      /* 自動トリミングを維持 */
+    aspect-ratio: 1 / 1;    /* 正方形を維持 */
 }
 
-/* スマホ対応（画面幅が600px以下の場合のレイアウト） */
-@media (max-width: 600px) {
-    .profile-container {
-        /* スマホでは写真をテキストの上に配置する */
-        flex-direction: column-reverse; 
+/* PC画面（幅600px以上）での調整 */
+@media (min-width: 600px) {
+    header {
+        /* 右上に固定されているナビゲーションとの重なりを防ぐため、右側の余白を大きく確保 */
+        padding-right: 220px; /* ナビゲーションの幅に合わせて調整 */
     }
-    .profile-image {
-        margin-bottom: 20px;
-        width: 120px;    /* スマホでは少し写真を小さくする */
+    .header-profile-container {
+        justify-content: flex-start; /* PCでは左寄せにしてスペースを有効活用 */
+        text-align: left;
+    }
+}
+
+/* スマホ画面（幅600px未満）での調整 */
+@media (max-width: 599px) {
+    .header-profile-container {
+        flex-direction: column; /* スマホでは縦並び（名前の下に写真）にする */
+        gap: 15px;             /* 間隔を狭く */
+        text-align: center;
+    }
+    .header-profile-text,
+    header .header-profile-text h1,
+    header .header-profile-text p {
+        text-align: center;    /* スマホではテキストもセンター揃え */
+    }
+    .header-photo {
+        width: 100px;           /* スマホでは写真をさらに少し小さく */
     }
 }
