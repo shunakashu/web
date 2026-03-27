@@ -290,3 +290,144 @@ header .header-profile-text p {
         width: 120px;           /* スマホでは写真をさらに少し小さく */
     }
 }
+
+/* =========================================
+   研究課題リスト (Research list)
+   ========================================= */
+.research-list {
+    padding-left: 1.4em;
+    margin: 0;
+}
+.research-list li {
+    margin-bottom: 6px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   タイムライン (Timeline)
+   ========================================= */
+.timeline {
+    position: relative;
+    padding-left: 24px;
+    border-left: 2px solid #e0e0e0;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -31px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    border: 2px solid var(--surface-color);
+}
+
+.timeline-year {
+    flex-shrink: 0;
+    min-width: 150px;
+    font-weight: 600;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    padding-top: 2px;
+}
+
+.timeline-desc {
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+@media (max-width: 599px) {
+    .timeline-item {
+        flex-direction: column;
+        gap: 2px;
+    }
+    .timeline-year {
+        min-width: auto;
+    }
+}
+
+/* =========================================
+   業績サブセクション (Achievement subsections)
+   ========================================= */
+.subsection {
+    margin-bottom: 28px;
+}
+
+.subsection h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 12px 0;
+    padding: 4px 0 4px 12px;
+    border-left: 3px solid var(--accent-color);
+    letter-spacing: 0.03em;
+}
+
+.placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* =========================================
+   業績リスト (Achievement list)
+   ========================================= */
+.achievement-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.achievement-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    line-height: 1.7;
+}
+
+.achievement-list li:last-child {
+    border-bottom: none;
+}
+
+.ach-title {
+    flex: 1;
+}
+
+.date {
+    flex-shrink: 0;
+    font-size: 0.82rem;
+    color: #999;
+    white-space: nowrap;
+}
+
+.award {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background-color: #fff8e1;
+    color: #7a5c00;
+    border: 1px solid #ffe082;
+    padding: 1px 7px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+@media (max-width: 599px) {
+    .achievement-list li {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
